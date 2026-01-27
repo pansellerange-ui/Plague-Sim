@@ -23,9 +23,9 @@ Rates automatically change based on year and region.
 
 ## How to Run
 
-1. Install .NET SDK  
-2. Download or clone the repo  
-3. Run:
+1. Paste this Replit link into your browser: https://replit.com/@pansellerange/Plague-Sim-1?v=1
+2. Go to console
+3. Hit run
 
 
 Then enter:
