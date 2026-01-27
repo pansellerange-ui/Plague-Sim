@@ -39,23 +39,19 @@ class Program
         Console.WriteLine();
 
         // Run simulation for 60 days
-        for (int day = 1; day <= 60; day++)
+        int stepDays = 5;
+
+        for (int day = 1; day <= totalDays; day += stepDays)
         {
-            // New infections depend on how many infected people exist
-            int newInfections = (int)(infected * infectionRate);
-
-            // Make sure we don't infect more than the number of susceptible people
-            newInfections = Math.Min(newInfections, susceptible);
-
-            // New recoveries depend on how many people are infected
-            int newRecoveries = (int)(infected * recoveryRate);
-
-            // Update counts
-            susceptible -= newInfections;
-            infected += newInfections;
-            infected -= newRecoveries;
-            recovered += newRecoveries;
-
+            for (int i = 0; i < stepDays; i++)
+            {
+                SimulateDay();
+            }
+        
+            Console.WriteLine(
+                $"Day {day + stepDays - 1}: S={susceptible}, I={infected}, R={recovered}"
+            );
+        }
             // Prevent negative weirdness
             if (infected < 0) infected = 0;
 
